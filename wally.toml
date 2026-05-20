@@ -1,5 +1,5 @@
 [package]
-name = "phasenull/deep"
+name = "phasenull/luau-template"
 version = "0.1.0"
 registry = "https://github.com/UpliftGames/wally-index"
 realm = "shared"
