@@ -1,5 +1,5 @@
 {
-  "name": "luau-template",
+  "name": "roblox-luau-template",
   "tree": {
     "$className": "DataModel",
     "ReplicatedStorage": {
