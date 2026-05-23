@@ -1,11 +1,6 @@
 {
-
 	"Module template": {
-		"prefix": [
-			"controller",
-			"module",
-			"service"
-		],
+		"prefix": ["controller", "module", "service"],
 		"body": [
 			"local trove = require(\"@game/ReplicatedStorage/Packages/trove\")",
 			"local ${TM_FILENAME_BASE/(?:^|[-.])(.)/${1:/upcase}/g} = {}",
@@ -27,5 +22,31 @@
 			""
 		],
 		"description": "Module template"
+	},
+	"Component template": {
+		"prefix": ["class", "component"],
+		"body": [
+			"local trove = require(\"@game/ReplicatedStorage/Packages/trove\")",
+			"local ${TM_FILENAME_BASE/(?:^|[-.])(.)/${1:/upcase}/g} = {}",
+			"export type ComponentProperties = {",
+			"\tmanager: typeof(trove.new())",
+			"}",
+			"export type ${TM_FILENAME_BASE/(?:^|[-.])(.)/${1:/upcase}/g} = typeof(setmetatable({} :: ComponentProperties, ${TM_FILENAME_BASE/(?:^|[-.])(.)/${1:/upcase}/g}))",
+			"local PREFIX = '[$TM_FILENAME_BASE.luau]:'",
+			"${TM_FILENAME_BASE/(?:^|[-.])(.)/${1:/upcase}/g}.__index = ${TM_FILENAME_BASE/(?:^|[-.])(.)/${1:/upcase}/g}",
+			"function ${TM_FILENAME_BASE/(?:^|[-.])(.)/${1:/upcase}/g}.new(): ${TM_FILENAME_BASE/(?:^|[-.])(.)/${1:/upcase}/g}",
+			"\tlocal self = { manager = trove.new() }",
+			"\tsetmetatable(self, ${TM_FILENAME_BASE/(?:^|[-.])(.)/${1:/upcase}/g})",
+			"\t",
+			"\treturn self",
+			"end",
+			"",
+			"function ${TM_FILENAME_BASE/(?:^|[-.])(.)/${1:/upcase}/g}.Destroy(self: ${TM_FILENAME_BASE/(?:^|[-.])(.)/${1:/upcase}/g})",
+			"\tprint(PREFIX, \"Destroying\")",
+			"\tself.manager:Destroy()",
+			"end",
+			"",
+			"return ${TM_FILENAME_BASE/(?:^|[-.])(.)/${1:/upcase}/g}"
+		]
 	}
 }
